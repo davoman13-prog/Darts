@@ -1,0 +1,83 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Darts Scorekeeper</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <main class="app">
+    <header>
+      <h1>Darts Scorekeeper</h1>
+      <p>Tap the dartboard values to score for Player 1 or Player 2.</p>
+    </header>
+
+    <section class="setup card">
+      <h2>Game Setup</h2>
+      <div class="setup-controls">
+        <label for="startScore">Starting score</label>
+        <input id="startScore" type="number" min="2" step="1" value="501" />
+        <div class="preset-buttons">
+          <button data-preset="301">301</button>
+          <button data-preset="501">501</button>
+        </div>
+        <button id="newGameBtn" class="primary">Start / Reset Game</button>
+      </div>
+    </section>
+
+    <section class="players">
+      <article class="card player" id="player1Card">
+        <h2>Player 1</h2>
+        <p class="score" id="player1Score">501</p>
+        <p>Darts thrown: <span id="player1Darts">0</span></p>
+        <p>3-dart average: <span id="player1Average">0.00</span></p>
+        <p>Checkout: <span id="player1Checkout">-</span></p>
+        <button class="active-btn" data-player="0">Score for Player 1</button>
+      </article>
+
+      <article class="card player" id="player2Card">
+        <h2>Player 2</h2>
+        <p class="score" id="player2Score">501</p>
+        <p>Darts thrown: <span id="player2Darts">0</span></p>
+        <p>3-dart average: <span id="player2Average">0.00</span></p>
+        <p>Checkout: <span id="player2Checkout">-</span></p>
+        <button class="active-btn" data-player="1">Score for Player 2</button>
+      </article>
+    </section>
+
+    <section class="card board-section">
+      <div class="board-header">
+        <h2>Dartboard Input</h2>
+        <p id="activePlayerLabel">Active player: Player 1</p>
+      </div>
+
+      <div class="multiplier-controls" role="group" aria-label="Multiplier">
+        <button class="multiplier active" data-multiplier="1">Single</button>
+        <button class="multiplier" data-multiplier="2">Double</button>
+        <button class="multiplier" data-multiplier="3">Treble</button>
+      </div>
+
+      <div class="dartboard" id="dartboard" aria-label="Dartboard scoring buttons">
+        <div class="ring" id="numberRing"></div>
+        <div class="bull-buttons">
+          <button class="bull outer" data-special="25">Outer Bull (25)</button>
+          <button class="bull inner" data-special="50">Bullseye (50)</button>
+        </div>
+      </div>
+
+      <div class="actions">
+        <button id="undoBtn">Undo last dart</button>
+        <p id="message" aria-live="polite"></p>
+      </div>
+    </section>
+
+    <section class="card history">
+      <h2>Recent Darts</h2>
+      <ul id="historyList"></ul>
+    </section>
+  </main>
+
+  <script src="app.js"></script>
+</body>
+</html>
