@@ -4,13 +4,13 @@ const state = {
   startScore: 501,
   activePlayer: 0,
   multiplier: 1,
-  players: [createPlayer(), createPlayer()],
+  players: [createPlayer(501), createPlayer(501)],
   history: []
 };
 
-function createPlayer() {
+function createPlayer(startScore = 501) {
   return {
-    score: state?.startScore ?? 501,
+    score: startScore,
     darts: 0,
     pointsScored: 0
   };
@@ -235,3 +235,4 @@ function wireEvents() {
 setupBoardButtons();
 wireEvents();
 startNewGame();
+
